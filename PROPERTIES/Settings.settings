@@ -6,7 +6,7 @@
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
     <Setting Name="WindowSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">477, 215</Value>
+      <Value Profile="(Default)">475, 298</Value>
     </Setting>
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)">de-DE</Value>
@@ -34,6 +34,15 @@
     </Setting>
     <Setting Name="WindowSizeSettings" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">678, 816</Value>
+    </Setting>
+    <Setting Name="HitText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CriticalHitText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TargetUndamagedText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

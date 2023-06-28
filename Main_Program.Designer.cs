@@ -41,6 +41,12 @@
             this.FlugzeugZerstörtUserTextBox = new System.Windows.Forms.TextBox();
             this.UpdateLangDirButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.HitTextBox = new System.Windows.Forms.TextBox();
+            this.HitUserTextBox = new System.Windows.Forms.TextBox();
+            this.CriticalHitTextBox = new System.Windows.Forms.TextBox();
+            this.CriticalHitUserTextBox = new System.Windows.Forms.TextBox();
+            this.TargetUndamagedTextBox = new System.Windows.Forms.TextBox();
+            this.TargetUndamagedUserTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GotoSettings)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +72,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(118, 133);
+            this.SaveButton.Location = new System.Drawing.Point(115, 219);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(329, 28);
             this.SaveButton.TabIndex = 2;
@@ -141,7 +147,7 @@
             // 
             // UpdateLangDirButton
             // 
-            this.UpdateLangDirButton.Location = new System.Drawing.Point(12, 133);
+            this.UpdateLangDirButton.Location = new System.Drawing.Point(9, 219);
             this.UpdateLangDirButton.Name = "UpdateLangDirButton";
             this.UpdateLangDirButton.Size = new System.Drawing.Size(100, 28);
             this.UpdateLangDirButton.TabIndex = 12;
@@ -149,11 +155,68 @@
             this.UpdateLangDirButton.UseVisualStyleBackColor = true;
             this.UpdateLangDirButton.Click += new System.EventHandler(this.UpdateLangDirButton_Click);
             // 
+            // HitTextBox
+            // 
+            this.HitTextBox.Location = new System.Drawing.Point(13, 134);
+            this.HitTextBox.Name = "HitTextBox";
+            this.HitTextBox.ReadOnly = true;
+            this.HitTextBox.Size = new System.Drawing.Size(100, 20);
+            this.HitTextBox.TabIndex = 13;
+            this.HitTextBox.TabStop = false;
+            this.HitTextBox.Text = "Treffer:";
+            // 
+            // HitUserTextBox
+            // 
+            this.HitUserTextBox.Location = new System.Drawing.Point(120, 133);
+            this.HitUserTextBox.Name = "HitUserTextBox";
+            this.HitUserTextBox.Size = new System.Drawing.Size(158, 20);
+            this.HitUserTextBox.TabIndex = 14;
+            // 
+            // CriticalHitTextBox
+            // 
+            this.CriticalHitTextBox.Location = new System.Drawing.Point(13, 161);
+            this.CriticalHitTextBox.Name = "CriticalHitTextBox";
+            this.CriticalHitTextBox.ReadOnly = true;
+            this.CriticalHitTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CriticalHitTextBox.TabIndex = 15;
+            this.CriticalHitTextBox.TabStop = false;
+            this.CriticalHitTextBox.Text = "Kritischer Treffer:";
+            // 
+            // CriticalHitUserTextBox
+            // 
+            this.CriticalHitUserTextBox.Location = new System.Drawing.Point(120, 160);
+            this.CriticalHitUserTextBox.Name = "CriticalHitUserTextBox";
+            this.CriticalHitUserTextBox.Size = new System.Drawing.Size(158, 20);
+            this.CriticalHitUserTextBox.TabIndex = 16;
+            // 
+            // TargetUndamagedTextBox
+            // 
+            this.TargetUndamagedTextBox.Location = new System.Drawing.Point(13, 188);
+            this.TargetUndamagedTextBox.Name = "TargetUndamagedTextBox";
+            this.TargetUndamagedTextBox.ReadOnly = true;
+            this.TargetUndamagedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.TargetUndamagedTextBox.TabIndex = 17;
+            this.TargetUndamagedTextBox.TabStop = false;
+            this.TargetUndamagedTextBox.Text = "Ziel unbeschädigt:";
+            // 
+            // TargetUndamagedUserTextBox
+            // 
+            this.TargetUndamagedUserTextBox.Location = new System.Drawing.Point(120, 188);
+            this.TargetUndamagedUserTextBox.Name = "TargetUndamagedUserTextBox";
+            this.TargetUndamagedUserTextBox.Size = new System.Drawing.Size(158, 20);
+            this.TargetUndamagedUserTextBox.TabIndex = 18;
+            // 
             // Main_Program
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 175);
+            this.ClientSize = new System.Drawing.Size(459, 259);
+            this.Controls.Add(this.TargetUndamagedUserTextBox);
+            this.Controls.Add(this.TargetUndamagedTextBox);
+            this.Controls.Add(this.CriticalHitUserTextBox);
+            this.Controls.Add(this.CriticalHitTextBox);
+            this.Controls.Add(this.HitUserTextBox);
+            this.Controls.Add(this.HitTextBox);
             this.Controls.Add(this.GotoSettings);
             this.Controls.Add(this.PanzerZerstörtUserTextBox);
             this.Controls.Add(this.UpdateLangDirButton);
@@ -191,6 +254,12 @@
         private System.Windows.Forms.TextBox FlugzeugZerstörtUserTextBox;
         private System.Windows.Forms.Button UpdateLangDirButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.TextBox HitTextBox;
+        private System.Windows.Forms.TextBox HitUserTextBox;
+        private System.Windows.Forms.TextBox CriticalHitTextBox;
+        private System.Windows.Forms.TextBox CriticalHitUserTextBox;
+        private System.Windows.Forms.TextBox TargetUndamagedTextBox;
+        private System.Windows.Forms.TextBox TargetUndamagedUserTextBox;
     }
 }
 

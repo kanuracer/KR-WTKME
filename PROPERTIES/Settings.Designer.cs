@@ -37,7 +37,7 @@ namespace KR_WTKME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("477, 215")]
+        [global::System.Configuration.DefaultSettingValueAttribute("475, 298")]
         public global::System.Drawing.Size WindowSize {
             get {
                 return ((global::System.Drawing.Size)(this["WindowSize"]));
@@ -152,6 +152,42 @@ namespace KR_WTKME.Properties {
             }
             set {
                 this["WindowSizeSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HitText {
+            get {
+                return ((string)(this["HitText"]));
+            }
+            set {
+                this["HitText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CriticalHitText {
+            get {
+                return ((string)(this["CriticalHitText"]));
+            }
+            set {
+                this["CriticalHitText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TargetUndamagedText {
+            get {
+                return ((string)(this["TargetUndamagedText"]));
+            }
+            set {
+                this["TargetUndamagedText"] = value;
             }
         }
     }

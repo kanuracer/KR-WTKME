@@ -35,6 +35,9 @@ namespace KR_WTKME
                 e.Graphics.DrawLine(pen, PanzerZerstörtUserTextBox.Left, PanzerZerstörtUserTextBox.Bottom + lineWidth, PanzerZerstörtUserTextBox.Right, PanzerZerstörtUserTextBox.Bottom + lineWidth);
                 e.Graphics.DrawLine(pen, FlugzeugZerstörtUserTextBox.Left, FlugzeugZerstörtUserTextBox.Bottom + lineWidth, FlugzeugZerstörtUserTextBox.Right, FlugzeugZerstörtUserTextBox.Bottom + lineWidth);
                 e.Graphics.DrawLine(pen, SelectedGamefolder.Left, SelectedGamefolder.Bottom + lineWidth, SelectedGamefolder.Right, SelectedGamefolder.Bottom + lineWidth);
+                e.Graphics.DrawLine(pen, HitUserTextBox.Left, HitUserTextBox.Bottom + lineWidth, HitUserTextBox.Right, HitUserTextBox.Bottom + lineWidth);
+                e.Graphics.DrawLine(pen, CriticalHitUserTextBox.Left, CriticalHitUserTextBox.Bottom + lineWidth, CriticalHitUserTextBox.Right, CriticalHitUserTextBox.Bottom + lineWidth);
+                e.Graphics.DrawLine(pen, TargetUndamagedUserTextBox.Left, TargetUndamagedUserTextBox.Bottom + lineWidth, TargetUndamagedUserTextBox.Right, TargetUndamagedUserTextBox.Bottom + lineWidth);
             }
         }
         private void Main_Program_Load(object sender, EventArgs e)
@@ -93,6 +96,12 @@ namespace KR_WTKME
                 this.UpdateLangDirButton.BackColor = Properties.Settings.Default.DarkThemeBackColor;
                 this.CustomMessagesActivateButton.BackColor = Properties.Settings.Default.DarkThemeBackColor;
                 this.GameFolderButton.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.HitTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.HitUserTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.CriticalHitTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.CriticalHitUserTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.TargetUndamagedTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.TargetUndamagedUserTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
 
                 this.GamefolderTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.PanzerZerstörtTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
@@ -104,6 +113,12 @@ namespace KR_WTKME
                 this.UpdateLangDirButton.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.CustomMessagesActivateButton.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.GameFolderButton.ForeColor=Properties.Settings.Default.DarkThemeForeColor;
+                this.HitTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
+                this.HitUserTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
+                this.CriticalHitTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
+                this.CriticalHitUserTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
+                this.TargetUndamagedTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
+                this.TargetUndamagedUserTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
 
 
                 this.GamefolderTextBox.BorderStyle = BorderStyle.None;
@@ -112,10 +127,18 @@ namespace KR_WTKME
                 this.PanzerZerstörtUserTextBox.BorderStyle = BorderStyle.None;
                 this.FlugzeugZerstörtUserTextBox.BorderStyle = BorderStyle.None;
                 this.SelectedGamefolder.BorderStyle = BorderStyle.None;
+                this.HitTextBox.BorderStyle = BorderStyle.None;
+                this.HitUserTextBox.BorderStyle = BorderStyle.None;
+                this.CriticalHitTextBox.BorderStyle = BorderStyle.None;
+                this.CriticalHitUserTextBox.BorderStyle = BorderStyle.None;
+                this.TargetUndamagedTextBox.BorderStyle = BorderStyle.None;
+                this.TargetUndamagedUserTextBox.BorderStyle = BorderStyle.None;
+
                 this.SaveButton.FlatStyle = FlatStyle.Flat;
                 this.UpdateLangDirButton.FlatStyle= FlatStyle.Flat;
                 this.CustomMessagesActivateButton.FlatStyle = FlatStyle.Flat;
                 this.GameFolderButton.FlatStyle = FlatStyle.Flat;
+                
 
                 this.SaveButton.FlatAppearance.BorderColor = Properties.Settings.Default.DarkThemeButtonBorderColor;
                 this.UpdateLangDirButton.FlatAppearance.BorderColor = Properties.Settings.Default.DarkThemeButtonBorderColor;
@@ -235,6 +258,9 @@ namespace KR_WTKME
             // Speichern des Inhalts der Textboxen in den Einstellungen
             Properties.Settings.Default.PanzerZerstörtText = PanzerZerstörtUserTextBox.Text;
             Properties.Settings.Default.FlugzeugZerstörtText = FlugzeugZerstörtUserTextBox.Text;
+            Properties.Settings.Default.HitText = HitUserTextBox.Text;
+            Properties.Settings.Default.CriticalHitText = CriticalHitUserTextBox.Text;
+            Properties.Settings.Default.TargetUndamagedText = TargetUndamagedUserTextBox.Text;
             // Speichern der geänderten Einstellungen
             Properties.Settings.Default.Save();
 
@@ -318,6 +344,116 @@ namespace KR_WTKME
 
                                 // Ersetze die alte Zeile durch die aktualisierte Zeile im Dateiinhalt
                                 fileContent = fileContent.Replace(flugzeugLine, updatedFlugzeugLine);
+                            }
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(HitUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.HitText))
+                {
+                    // Suche nach der Zeile mit dem zu ersetzenden Text für "Hit"
+                    string hitSearchString = "\"exp_reasons/hit\"";
+                    int hitLineIndex = fileContent.IndexOf(hitSearchString);
+
+                    if (hitLineIndex != -1)
+                    {
+                        // Suche das Ende der Zeile für "Hit"
+                        int hitEndIndex = fileContent.IndexOf("\n", hitLineIndex);
+
+                        if (hitEndIndex != -1)
+                        {
+                            // Extrahiere die Zeile mit dem zu ersetzenden Text für "Hit"
+                            string hitLine = fileContent.Substring(hitLineIndex, hitEndIndex - hitLineIndex);
+
+                            // Teile die Zeile in Spalten auf
+                            string[] hitColumns = hitLine.Split(';');
+
+                            if (hitColumns.Length >= 2)
+                            {
+                                // Ersetze den Text in allen Sprachenspalten für "Hit"
+                                for (int i = 1; i < hitColumns.Length - 1; i++)
+                                {
+                                    hitColumns[i] = "\"" + HitUserTextBox.Text + "\"";
+                                }
+
+                                // Baue die aktualisierte Zeile zusammen
+                                string updatedHitLine = string.Join(";", hitColumns);
+
+                                // Ersetze die alte Zeile durch die aktualisierte Zeile im Dateiinhalt
+                                fileContent = fileContent.Replace(hitLine, updatedHitLine);
+                            }
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(CriticalHitUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.CriticalHitText))
+                {
+                    // Suche nach der Zeile mit dem zu ersetzenden Text für "CriticalHit"
+                    string criticalHitSearchString = "\"exp_reasons/critical_hit\"";
+                    int criticalHitLineIndex = fileContent.IndexOf(criticalHitSearchString);
+
+                    if (criticalHitLineIndex != -1)
+                    {
+                        // Suche das Ende der Zeile für "CriticalHit"
+                        int criticalHitEndIndex = fileContent.IndexOf("\n", criticalHitLineIndex);
+
+                        if (criticalHitEndIndex != -1)
+                        {
+                            // Extrahiere die Zeile mit dem zu ersetzenden Text für "CriticalHit"
+                            string criticalHitLine = fileContent.Substring(criticalHitLineIndex, criticalHitEndIndex - criticalHitLineIndex);
+
+                            // Teile die Zeile in Spalten auf
+                            string[] criticalHitColumns = criticalHitLine.Split(';');
+
+                            if (criticalHitColumns.Length >= 2)
+                            {
+                                // Ersetze den Text in allen Sprachenspalten für "CriticalHit"
+                                for (int i = 1; i < criticalHitColumns.Length - 1; i++)
+                                {
+                                    criticalHitColumns[i] = "\"" + CriticalHitUserTextBox.Text + "\"";
+                                }
+
+                                // Baue die aktualisierte Zeile zusammen
+                                string updatedCriticalHitLine = string.Join(";", criticalHitColumns);
+
+                                // Ersetze die alte Zeile durch die aktualisierte Zeile im Dateiinhalt
+                                fileContent = fileContent.Replace(criticalHitLine, updatedCriticalHitLine);
+                            }
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(TargetUndamagedUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.TargetUndamagedText))
+                {
+                    // Suche nach der Zeile mit dem zu ersetzenden Text für "Target undamaged"
+                    string targetUndamagedSearchString = "\"exp_reasons/ineffective_hit\"";
+                    int targetUndamagedLineIndex = fileContent.IndexOf(targetUndamagedSearchString);
+
+                    if (targetUndamagedLineIndex != -1)
+                    {
+                        // Suche das Ende der Zeile für "Target undamaged"
+                        int targetUndamagedEndIndex = fileContent.IndexOf("\n", targetUndamagedLineIndex);
+
+                        if (targetUndamagedEndIndex != -1)
+                        {
+                            // Extrahiere die Zeile mit dem zu ersetzenden Text für "Target undamaged"
+                            string targetUndamagedLine = fileContent.Substring(targetUndamagedLineIndex, targetUndamagedEndIndex - targetUndamagedLineIndex);
+
+                            // Teile die Zeile in Spalten auf
+                            string[] targetUndamagedColumns = targetUndamagedLine.Split(';');
+
+                            if (targetUndamagedColumns.Length >= 2)
+                            {
+                                // Ersetze den Text in allen Sprachenspalten für "Target undamaged"
+                                for (int i = 1; i < targetUndamagedColumns.Length - 1; i++)
+                                {
+                                    targetUndamagedColumns[i] = "\"" + TargetUndamagedUserTextBox.Text + "\"";
+                                }
+
+                                // Baue die aktualisierte Zeile zusammen
+                                string updatedTargetUndamagedLine = string.Join(";", targetUndamagedColumns);
+
+                                // Ersetze die alte Zeile durch die aktualisierte Zeile im Dateiinhalt
+                                fileContent = fileContent.Replace(targetUndamagedLine, updatedTargetUndamagedLine);
                             }
                         }
                     }
