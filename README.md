@@ -5,4 +5,8 @@ Feel free to edit the project! It's important that it remains open source. The p
 
 You can download and install it here: https://download.kanuracer.eu/KR-WTKME/
 
-![KR-WTKME](https://github.com/kanuracer/KR-WTKME/assets/115377230/92ff1a95-bb76-401f-a7ee-4914efad7e7f)
+![KR-WTKME](https://github.com/kanuracer/KR-WTKME/assets/115377230/9df48038-8bc2-4562-b6e4-45f1c7338343)
+
+--PATCHNOTES--
+
+1.0.0.6: Hit, Critical Hit, and Target Undamaged have been added
