@@ -46,6 +46,9 @@ namespace KR_WTKME
             SelectedGamefolder.Text = Properties.Settings.Default.GamePath;
             PanzerZerstörtUserTextBox.Text = Properties.Settings.Default.PanzerZerstörtText;
             FlugzeugZerstörtUserTextBox.Text = Properties.Settings.Default.FlugzeugZerstörtText;
+            HitUserTextBox.Text = Properties.Settings.Default.HitText;
+            CriticalHitUserTextBox.Text = Properties.Settings.Default.CriticalHitText;
+            TargetUndamagedUserTextBox.Text = Properties.Settings.Default.TargetUndamagedText;
 
             // Wiederherstellen der Fensterposition beim Öffnen
             if (Properties.Settings.Default.WindowLocation != null)
