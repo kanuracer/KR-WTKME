@@ -1,4 +1,4 @@
-﻿namespace $safeprojectname$
+﻿namespace KR_WTKME
 {
     partial class Main_Program
     {
@@ -168,7 +168,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main_Program";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "$safeprojectname$";
+            this.Text = "KR-WTKME";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_Program_FormClosed);
             this.Load += new System.EventHandler(this.Main_Program_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GotoSettings)).EndInit();

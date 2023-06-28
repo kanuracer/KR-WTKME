@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace $safeprojectname$
+namespace KR_WTKME
 {
     internal static class Program
     {

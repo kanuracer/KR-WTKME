@@ -1,4 +1,4 @@
-﻿namespace $safeprojectname$
+﻿namespace KR_WTKME
 {
     partial class Settings
     {

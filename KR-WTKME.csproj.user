@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>Z:\Install\kanuracer.eu\KR-WTKME\|publish\</PublishUrlHistory>
+    <InstallUrlHistory>https://download.kanuracer.eu/KR-WTKME/</InstallUrlHistory>
+    <SupportUrlHistory>https://kanuracer.eu/support|https://support.kanuracer.eu</SupportUrlHistory>
+    <UpdateUrlHistory>https://download.kanuracer.eu/KR-WTKME/</UpdateUrlHistory>
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>de-DE</FallbackCulture>
+    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

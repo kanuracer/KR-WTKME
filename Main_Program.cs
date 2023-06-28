@@ -12,7 +12,7 @@ using System.Resources;
 using System.Reflection.Emit;
 using System.IO;
 
-namespace $safeprojectname$
+namespace KR_WTKME
 {
     public partial class Main_Program : Form
     {
