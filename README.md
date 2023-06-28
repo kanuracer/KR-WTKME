@@ -10,4 +10,5 @@ You can download and install it here: https://download.kanuracer.eu/KR-WTKME/
 --PATCHNOTES--
 
 1.0.0.7: Hit, Critical Hit, and Target Undamaged have been added to autoinfill
+
 1.0.0.6: Hit, Critical Hit, and Target Undamaged have been added
