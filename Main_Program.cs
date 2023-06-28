@@ -27,7 +27,7 @@ namespace KR_WTKME
         private void Main_Program_Paint(object sender, PaintEventArgs e)
         {
             // Weiße Linien zeichnen
-            using (Pen pen = new Pen(Properties.Settings.Default.DarkThemeTextBoxLine)) 
+            using (Pen pen = new Pen(Properties.Settings.Default.DarkThemeTextBoxLine))
             {
                 int lineWidth = 2; // Breite der Linien anpassen, falls gewünscht
 
@@ -115,7 +115,7 @@ namespace KR_WTKME
                 this.SaveButton.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.UpdateLangDirButton.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.CustomMessagesActivateButton.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
-                this.GameFolderButton.ForeColor=Properties.Settings.Default.DarkThemeForeColor;
+                this.GameFolderButton.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.HitTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.HitUserTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.CriticalHitTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
@@ -138,10 +138,10 @@ namespace KR_WTKME
                 this.TargetUndamagedUserTextBox.BorderStyle = BorderStyle.None;
 
                 this.SaveButton.FlatStyle = FlatStyle.Flat;
-                this.UpdateLangDirButton.FlatStyle= FlatStyle.Flat;
+                this.UpdateLangDirButton.FlatStyle = FlatStyle.Flat;
                 this.CustomMessagesActivateButton.FlatStyle = FlatStyle.Flat;
                 this.GameFolderButton.FlatStyle = FlatStyle.Flat;
-                
+
 
                 this.SaveButton.FlatAppearance.BorderColor = Properties.Settings.Default.DarkThemeButtonBorderColor;
                 this.UpdateLangDirButton.FlatAppearance.BorderColor = Properties.Settings.Default.DarkThemeButtonBorderColor;
@@ -158,7 +158,7 @@ namespace KR_WTKME
             }
 
         }
-        
+
         private void GotoSettings_Click(object sender, EventArgs e)
         {
             Settings settingsForm = new Settings();
@@ -167,7 +167,7 @@ namespace KR_WTKME
 
         private void Gamefolder_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GameFolderButton_Click(object sender, EventArgs e)
@@ -276,43 +276,50 @@ namespace KR_WTKME
                 // Lese den Inhalt der menu.csv-Datei
                 string fileContent = File.ReadAllText(menuFilePath);
 
-                // Überprüfe, ob die Textboxen nicht leer sind
-                if (!string.IsNullOrEmpty(PanzerZerstörtUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.PanzerZerstörtText))
-                {
-                    // Suche nach der Zeile mit dem zu ersetzenden Text für Panzer
-                    string panzerSearchString = "\"exp_reasons/kill_gm\"";
-                    int panzerLineIndex = fileContent.IndexOf(panzerSearchString);
-
-                    if (panzerLineIndex != -1)
+                    // Überprüfe, ob die Textboxen nicht leer sind
+                    if (!string.IsNullOrEmpty(PanzerZerstörtUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.PanzerZerstörtText))
                     {
-                        // Suche das Ende der Zeile für Panzer
-                        int panzerEndIndex = fileContent.IndexOf("\n", panzerLineIndex);
+                        // Suche nach der Zeile mit dem zu ersetzenden Text für Panzer
+                        string panzerSearchString = "\"exp_reasons/kill_gm\"";
+                        int panzerLineIndex = fileContent.IndexOf(panzerSearchString);
 
-                        if (panzerEndIndex != -1)
+                        if (panzerLineIndex != -1)
                         {
-                            // Extrahiere die Zeile mit dem zu ersetzenden Text für Panzer
-                            string panzerLine = fileContent.Substring(panzerLineIndex, panzerEndIndex - panzerLineIndex);
+                            // Suche das Ende der Zeile für Panzer
+                            int panzerEndIndex = fileContent.IndexOf("\n", panzerLineIndex);
 
-                            // Teile die Zeile in Spalten auf
-                            string[] panzerColumns = panzerLine.Split(';');
-
-                            if (panzerColumns.Length >= 2)
+                            if (panzerEndIndex != -1)
                             {
-                                // Ersetze den Text in allen Sprachenspalten für Panzer
-                                for (int i = 1; i < panzerColumns.Length - 1; i++)
+                                // Extrahiere die Zeile mit dem zu ersetzenden Text für Panzer
+                                string panzerLine = fileContent.Substring(panzerLineIndex, panzerEndIndex - panzerLineIndex);
+
+                                // Teile die Zeile in Spalten auf
+                                string[] panzerColumns = panzerLine.Split(';');
+
+                                if (panzerColumns.Length >= 2)
                                 {
-                                    panzerColumns[i] = "\"" + PanzerZerstörtUserTextBox.Text + "\"";
+                                    // Ersetze den Text in allen Sprachenspalten für Panzer
+                                    for (int i = 1; i < panzerColumns.Length; i++)
+                                    {
+                                        panzerColumns[i] = "\"" + PanzerZerstörtUserTextBox.Text + "\"";
+                                    }
+
+                                    // Füge die beiden zusätzlichen leeren Spalten am Ende hinzu
+                                    Array.Resize(ref panzerColumns, panzerColumns.Length + 2);
+                                    panzerColumns[panzerColumns.Length - 2] = "";
+                                    panzerColumns[panzerColumns.Length - 1] = "";
+
+                                    // Baue die aktualisierte Zeile zusammen
+                                    string updatedPanzerLine = string.Join(";", panzerColumns);
+
+                                    // Ersetze die alte Zeile durch die aktualisierte Zeile im Dateiinhalt
+                                    fileContent = fileContent.Replace(panzerLine, updatedPanzerLine);
                                 }
-
-                                // Baue die aktualisierte Zeile zusammen
-                                string updatedPanzerLine = string.Join(";", panzerColumns);
-
-                                // Ersetze die alte Zeile durch die aktualisierte Zeile im Dateiinhalt
-                                fileContent = fileContent.Replace(panzerLine, updatedPanzerLine);
                             }
                         }
                     }
-                }
+
+
 
                 // Überprüfe, ob die Textboxen nicht leer sind
                 if (!string.IsNullOrEmpty(FlugzeugZerstörtUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.FlugzeugZerstörtText))
@@ -337,10 +344,15 @@ namespace KR_WTKME
                             if (flugzeugColumns.Length >= 2)
                             {
                                 // Ersetze den Text in allen Sprachenspalten für Flugzeuge
-                                for (int i = 1; i < flugzeugColumns.Length - 1; i++)
+                                for (int i = 1; i < flugzeugColumns.Length; i++)
                                 {
                                     flugzeugColumns[i] = "\"" + FlugzeugZerstörtUserTextBox.Text + "\"";
                                 }
+
+                                // Füge die beiden zusätzlichen leeren Spalten am Ende hinzu
+                                Array.Resize(ref flugzeugColumns, flugzeugColumns.Length + 2);
+                                flugzeugColumns[flugzeugColumns.Length - 2] = "";
+                                flugzeugColumns[flugzeugColumns.Length - 1] = "";
 
                                 // Baue die aktualisierte Zeile zusammen
                                 string updatedFlugzeugLine = string.Join(";", flugzeugColumns);
@@ -351,6 +363,7 @@ namespace KR_WTKME
                         }
                     }
                 }
+
                 if (!string.IsNullOrEmpty(HitUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.HitText))
                 {
                     // Suche nach der Zeile mit dem zu ersetzenden Text für "Hit"
@@ -373,10 +386,15 @@ namespace KR_WTKME
                             if (hitColumns.Length >= 2)
                             {
                                 // Ersetze den Text in allen Sprachenspalten für "Hit"
-                                for (int i = 1; i < hitColumns.Length - 1; i++)
+                                for (int i = 1; i < hitColumns.Length; i++)
                                 {
                                     hitColumns[i] = "\"" + HitUserTextBox.Text + "\"";
                                 }
+
+                                // Füge die beiden zusätzlichen leeren Spalten am Ende hinzu
+                                Array.Resize(ref hitColumns, hitColumns.Length + 2);
+                                hitColumns[hitColumns.Length - 2] = "";
+                                hitColumns[hitColumns.Length - 1] = "";
 
                                 // Baue die aktualisierte Zeile zusammen
                                 string updatedHitLine = string.Join(";", hitColumns);
@@ -410,10 +428,15 @@ namespace KR_WTKME
                             if (criticalHitColumns.Length >= 2)
                             {
                                 // Ersetze den Text in allen Sprachenspalten für "CriticalHit"
-                                for (int i = 1; i < criticalHitColumns.Length - 1; i++)
+                                for (int i = 1; i < criticalHitColumns.Length; i++)
                                 {
                                     criticalHitColumns[i] = "\"" + CriticalHitUserTextBox.Text + "\"";
                                 }
+
+                                // Füge die beiden zusätzlichen leeren Spalten am Ende hinzu
+                                Array.Resize(ref criticalHitColumns, criticalHitColumns.Length + 2);
+                                criticalHitColumns[criticalHitColumns.Length - 2] = "";
+                                criticalHitColumns[criticalHitColumns.Length - 1] = "";
 
                                 // Baue die aktualisierte Zeile zusammen
                                 string updatedCriticalHitLine = string.Join(";", criticalHitColumns);
@@ -447,10 +470,15 @@ namespace KR_WTKME
                             if (targetUndamagedColumns.Length >= 2)
                             {
                                 // Ersetze den Text in allen Sprachenspalten für "Target undamaged"
-                                for (int i = 1; i < targetUndamagedColumns.Length - 1; i++)
+                                for (int i = 1; i < targetUndamagedColumns.Length; i++)
                                 {
                                     targetUndamagedColumns[i] = "\"" + TargetUndamagedUserTextBox.Text + "\"";
                                 }
+
+                                // Füge die beiden zusätzlichen leeren Spalten am Ende hinzu
+                                Array.Resize(ref targetUndamagedColumns, targetUndamagedColumns.Length + 2);
+                                targetUndamagedColumns[targetUndamagedColumns.Length - 2] = "";
+                                targetUndamagedColumns[targetUndamagedColumns.Length - 1] = "";
 
                                 // Baue die aktualisierte Zeile zusammen
                                 string updatedTargetUndamagedLine = string.Join(";", targetUndamagedColumns);
@@ -499,5 +527,5 @@ namespace KR_WTKME
             }
         }
     }
-    
+
 }
