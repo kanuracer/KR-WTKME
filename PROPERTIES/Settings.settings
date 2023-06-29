@@ -9,7 +9,7 @@
       <Value Profile="(Default)">475, 298</Value>
     </Setting>
     <Setting Name="Language" Type="System.String" Scope="User">
-      <Value Profile="(Default)">de-DE</Value>
+      <Value Profile="(Default)">en-US</Value>
     </Setting>
     <Setting Name="DarkThemeBackColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">48, 25, 52</Value>

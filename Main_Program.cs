@@ -11,11 +11,27 @@ using System.Windows.Forms;
 using System.Resources;
 using System.Reflection.Emit;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace KR_WTKME
 {
     public partial class Main_Program : Form
     {
+        //msgStrings
+        private string msgThemeError;
+        private string msgLocalizationActivated;
+        private string msgConfigUpdatedSuccessfully;
+        private string msgConfigFileNotFound;
+        private string msgInvalidGamePath;
+        private string msgErrorTitle;
+        private string msgSuccessTitle;
+        private string msgInfoTitle;
+        private string msgTextsUpdatedSuccessfully;
+        private string msgLangFolderNotFound;
+        private string msgLinesNotFoundOrError;
+        private string msgLanguageDirectoryCleared;
+        private string msgLangDirectoryNotFound;
+
         public Main_Program()
         {
             InitializeComponent();
@@ -23,6 +39,7 @@ namespace KR_WTKME
             this.Load += Main_Program_Load;
             // Linien zeichnen
             this.Paint += Main_Program_Paint;
+
         }
         private void Main_Program_Paint(object sender, PaintEventArgs e)
         {
@@ -49,6 +66,73 @@ namespace KR_WTKME
             HitUserTextBox.Text = Properties.Settings.Default.HitText;
             CriticalHitUserTextBox.Text = Properties.Settings.Default.CriticalHitText;
             TargetUndamagedUserTextBox.Text = Properties.Settings.Default.TargetUndamagedText;
+
+            //Überprüfe Sprache und setze entsprechenden Text
+            if (Properties.Settings.Default.Language == "de-DE")
+            {
+                //Textboxen
+                GamefolderTextBox.Text = "Speileverzeichnis:";
+                PanzerZerstörtTextBox.Text = "Panzer zerstört:";
+                FlugzeugZerstörtTextBox.Text = "Flugzeug zerstört:";
+                HitTextBox.Text = "Treffer:";
+                CriticalHitTextBox.Text = "Kritischer Treffer:";
+                TargetUndamagedTextBox.Text = "Ziel unbeschädigt:";
+                
+
+                //buttons
+                CustomMessagesActivateButton.Text = "Eigene Kill Message aktivieren";
+                GameFolderButton.Text = "Auswählen";
+                UpdateLangDirButton.Text = "Update";
+                SaveButton.Text = "Speichern";
+
+                //msg
+                msgThemeError = "Fehler beim Abfragen des Registrierungsschlüssels für das aktuelle Windows-Theme: ";
+                msgLocalizationActivated = "Die testLocalization ist bereits aktiviert.";
+                msgConfigUpdatedSuccessfully = "Die Konfigurationsdatei wurde erfolgreich aktualisiert. Bitte starte War Thunder und beende es anschließend";
+                msgConfigFileNotFound = "Die Datei config.blk wurde nicht im angegebenen Pfad gefunden.";
+                msgInvalidGamePath = "Der Pfad zu War Thunder stimmt nicht. Bitte prüfe deine Einstellungen.";
+                msgTextsUpdatedSuccessfully = "Die Texte wurden erfolgreich in der menu.csv-Datei aktualisiert.\nViel Spaß beim Spielen!";
+                msgLangFolderNotFound = "Der Sprachordner wurde nicht im angegebenen Gamepath gefunden.";
+                msgLinesNotFoundOrError = "Die Zeilen mit den zu ersetzenden Texten konnten nicht gefunden werden oder es ist ein Fehler aufgetreten.";
+                msgLanguageDirectoryCleared = "Der Inhalt des Sprachverzeichnisses wurde gelöscht.\n\nBitte starte War Thunder und schließe es wieder, um das Verzeichnis zu aktualisieren.\nDrücke anschließend auf Speichern, um deine persönlichen Killmessages zu speichern.";
+                msgLangDirectoryNotFound = "Das \"lang\"-Verzeichnis wurde nicht im angegebenen Gamepath gefunden.";
+                msgErrorTitle = "Fehler";
+                msgSuccessTitle = "Erfolgreich";
+                msgInfoTitle = "Info";
+
+            }
+            else if (Properties.Settings.Default.Language == "en-US")
+            {
+                //Textboxen
+                GamefolderTextBox.Text = "Gamefolder:";
+                PanzerZerstörtTextBox.Text = "Tank destroyed:";
+                FlugzeugZerstörtTextBox.Text = "Aircraft destroyed:";
+                HitTextBox.Text = "Hit:";
+                CriticalHitTextBox.Text = "Critical Hit:";
+                TargetUndamagedTextBox.Text = "Target undamaged:";
+
+                //buttons
+                CustomMessagesActivateButton.Text = "Activate Kill Messages";
+                GameFolderButton.Text = "Select";
+                UpdateLangDirButton.Text = "Update";
+                SaveButton.Text = "Save";
+
+                //msg
+                msgThemeError = "Error querying the registry key for the current Windows theme: ";
+                msgLocalizationActivated = "The testLocalization is already activated.";
+                msgConfigUpdatedSuccessfully = "The configuration file has been successfully updated. Please start War Thunder and exit afterwards.";
+                msgConfigFileNotFound = "The config.blk file was not found in the specified path.";
+                msgInvalidGamePath = "The War Thunder path is incorrect. Please check your settings.";
+                msgTextsUpdatedSuccessfully = "The texts have been successfully updated in the menu.csv file.\nEnjoy gaming!";
+                msgLangFolderNotFound = "The language folder was not found in the specified game path.";
+                msgLinesNotFoundOrError = "The lines with the texts to be replaced could not be found or an error occurred.";
+                msgLanguageDirectoryCleared = "The content of the language directory has been cleared.\n\nPlease start War Thunder and close it again to update the directory.\nThen click Save to save your custom kill messages.";
+                msgLangDirectoryNotFound = "The \"lang\" directory was not found in the specified game path.";
+                msgErrorTitle = "Error";
+                msgSuccessTitle = "Success";
+                msgInfoTitle = "Info";
+            }
+
 
             // Wiederherstellen der Fensterposition beim Öffnen
             if (Properties.Settings.Default.WindowLocation != null)
@@ -82,7 +166,7 @@ namespace KR_WTKME
             catch (Exception ex)
             {
                 // Fehler beim Abfragen des Registrierungsschlüssels
-                MessageBox.Show("Fehler beim Abfragen des Registrierungsschlüssels für das aktuelle Windows-Theme: " + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msgThemeError + ex.Message, msgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (!isLightTheme)
@@ -219,7 +303,7 @@ namespace KR_WTKME
                             if (lineIndex != -1)
                             {
                                 // Zeile bereits vorhanden, zeige eine Meldung an
-                                MessageBox.Show("Die testLocalization ist bereits aktiviert.", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show(msgLocalizationActivated, msgInfoTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 return; // Beende die Methode, um keine weitere Aktion auszuführen
                             }
 
@@ -233,19 +317,19 @@ namespace KR_WTKME
                     File.WriteAllText(configPath, fileContent);
 
                     // Bestätigung anzeigen
-                    MessageBox.Show("Die Konfigurationsdatei wurde erfolgreich aktualisiert. Bitte starte War Thunder und beende es anschließend", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(msgConfigUpdatedSuccessfully, msgSuccessTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     // Datei nicht gefunden, gib eine Fehlermeldung aus
-                    MessageBox.Show("Die Datei config.blk wurde nicht im angegebenen Pfad gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(msgConfigFileNotFound, msgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
             else
             {
                 // Datei nicht gefunden, gib eine Fehlermeldung aus
-                MessageBox.Show("Der Pfad zu War Thunder stimmt nicht. Bitte prüfe deine Einstellungen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msgInvalidGamePath, msgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -494,17 +578,17 @@ namespace KR_WTKME
                 File.WriteAllText(menuFilePath, fileContent);
 
                 // Erfolgmeldung anzeigen
-                MessageBox.Show("Die Texte wurden erfolgreich in der menu.csv-Datei aktualisiert.\nViel spaß beim zocken!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(msgTextsUpdatedSuccessfully, msgSuccessTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
             {
                 // Der lang-Ordner wurde nicht gefunden, gib eine Fehlermeldung aus
-                MessageBox.Show("Der Sprachordner wurde nicht im angegebenen Gamepath gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msgLangFolderNotFound, msgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // Fehlermeldung anzeigen, wenn die Zeilen nicht gefunden oder nicht korrekt aktualisiert werden konnten
-            MessageBox.Show("Die Zeilen mit den zu ersetzenden Texten konnten nicht gefunden werden oder es ist ein Fehler aufgetreten.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(msgLinesNotFoundOrError, msgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -518,12 +602,12 @@ namespace KR_WTKME
                 Directory.Delete(langFolderPath, true);
 
                 // Zeige die Nachricht an
-                MessageBox.Show("Der Inhalt des Sprachverzeichnisses wurde gelöscht.\n\nBitte starte War Thunder und schließe es wieder, um das Verzeichnis zu aktualisieren.\nDrücke anschließend auf Speichern, um deine persönlichen Killmessages zu speichern.", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(msgLanguageDirectoryCleared, msgInfoTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 // Das "lang"-Verzeichnis wurde nicht gefunden, gib eine Fehlermeldung aus
-                MessageBox.Show("Das \"lang\"-Verzeichnis wurde nicht im angegebenen Gamepath gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msgLangDirectoryNotFound, msgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
