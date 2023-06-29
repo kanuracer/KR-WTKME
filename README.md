@@ -9,7 +9,9 @@ You can download and install it here: https://download.kanuracer.eu/KR-WTKME/
 
 --PATCHNOTES--
 
-1.0.0.9: Fixed Critical Error (;; end of line)
+1.0.0.9: Added English language pack
+
+1.0.0.8: Fixed Critical Error (;; end of line)
 
 1.0.0.7: Hit, Critical Hit, and Target Undamaged have been added to autoinfill
 
