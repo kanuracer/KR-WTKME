@@ -5,6 +5,8 @@ Feel free to edit the project! It's important that it remains open source. The p
 
 You can download and install it here: https://download.kanuracer.eu/KR-WTKME/
 
+![__PreviewImage](https://github.com/kanuracer/KR-WTKME/blob/main/10.0.0.14_screenshot.png)
+
 ![__PreviewImage](https://github.com/kanuracer/KR-WTKME/assets/115377230/7e841fba-dc40-4c30-90af-f217c0ac481c)
 
 ![__PreviewImage2](https://github.com/kanuracer/KR-WTKME/assets/115377230/e3219b61-00ff-4e69-9f99-c1b94e0bb577)
