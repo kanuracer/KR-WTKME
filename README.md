@@ -12,6 +12,8 @@ You can download and install it here: https://download.kanuracer.eu/KR-WTKME/
 
 --PATCHNOTES--
 
+10.0.0.14: Added Helicopters
+
 1.0.0.9: Added English language pack
 
 1.0.0.8: Fixed Critical Error (;; end of line)
