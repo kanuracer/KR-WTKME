@@ -47,6 +47,8 @@
             this.CriticalHitUserTextBox = new System.Windows.Forms.TextBox();
             this.TargetUndamagedTextBox = new System.Windows.Forms.TextBox();
             this.TargetUndamagedUserTextBox = new System.Windows.Forms.TextBox();
+            this.HelikopterZerstörtUserTextBox = new System.Windows.Forms.TextBox();
+            this.HelikopterZerstörtTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GotoSettings)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +74,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(115, 219);
+            this.SaveButton.Location = new System.Drawing.Point(114, 244);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(329, 28);
             this.SaveButton.TabIndex = 2;
@@ -147,7 +149,7 @@
             // 
             // UpdateLangDirButton
             // 
-            this.UpdateLangDirButton.Location = new System.Drawing.Point(9, 219);
+            this.UpdateLangDirButton.Location = new System.Drawing.Point(8, 244);
             this.UpdateLangDirButton.Name = "UpdateLangDirButton";
             this.UpdateLangDirButton.Size = new System.Drawing.Size(100, 28);
             this.UpdateLangDirButton.TabIndex = 12;
@@ -157,7 +159,7 @@
             // 
             // HitTextBox
             // 
-            this.HitTextBox.Location = new System.Drawing.Point(13, 134);
+            this.HitTextBox.Location = new System.Drawing.Point(12, 159);
             this.HitTextBox.Name = "HitTextBox";
             this.HitTextBox.ReadOnly = true;
             this.HitTextBox.Size = new System.Drawing.Size(100, 20);
@@ -167,14 +169,14 @@
             // 
             // HitUserTextBox
             // 
-            this.HitUserTextBox.Location = new System.Drawing.Point(120, 133);
+            this.HitUserTextBox.Location = new System.Drawing.Point(119, 158);
             this.HitUserTextBox.Name = "HitUserTextBox";
             this.HitUserTextBox.Size = new System.Drawing.Size(158, 20);
             this.HitUserTextBox.TabIndex = 14;
             // 
             // CriticalHitTextBox
             // 
-            this.CriticalHitTextBox.Location = new System.Drawing.Point(13, 161);
+            this.CriticalHitTextBox.Location = new System.Drawing.Point(12, 186);
             this.CriticalHitTextBox.Name = "CriticalHitTextBox";
             this.CriticalHitTextBox.ReadOnly = true;
             this.CriticalHitTextBox.Size = new System.Drawing.Size(100, 20);
@@ -184,14 +186,14 @@
             // 
             // CriticalHitUserTextBox
             // 
-            this.CriticalHitUserTextBox.Location = new System.Drawing.Point(120, 160);
+            this.CriticalHitUserTextBox.Location = new System.Drawing.Point(119, 185);
             this.CriticalHitUserTextBox.Name = "CriticalHitUserTextBox";
             this.CriticalHitUserTextBox.Size = new System.Drawing.Size(158, 20);
             this.CriticalHitUserTextBox.TabIndex = 16;
             // 
             // TargetUndamagedTextBox
             // 
-            this.TargetUndamagedTextBox.Location = new System.Drawing.Point(13, 188);
+            this.TargetUndamagedTextBox.Location = new System.Drawing.Point(12, 213);
             this.TargetUndamagedTextBox.Name = "TargetUndamagedTextBox";
             this.TargetUndamagedTextBox.ReadOnly = true;
             this.TargetUndamagedTextBox.Size = new System.Drawing.Size(100, 20);
@@ -201,16 +203,35 @@
             // 
             // TargetUndamagedUserTextBox
             // 
-            this.TargetUndamagedUserTextBox.Location = new System.Drawing.Point(120, 188);
+            this.TargetUndamagedUserTextBox.Location = new System.Drawing.Point(119, 213);
             this.TargetUndamagedUserTextBox.Name = "TargetUndamagedUserTextBox";
             this.TargetUndamagedUserTextBox.Size = new System.Drawing.Size(158, 20);
             this.TargetUndamagedUserTextBox.TabIndex = 18;
+            // 
+            // HelikopterZerstörtUserTextBox
+            // 
+            this.HelikopterZerstörtUserTextBox.Location = new System.Drawing.Point(119, 132);
+            this.HelikopterZerstörtUserTextBox.Name = "HelikopterZerstörtUserTextBox";
+            this.HelikopterZerstörtUserTextBox.Size = new System.Drawing.Size(158, 20);
+            this.HelikopterZerstörtUserTextBox.TabIndex = 20;
+            // 
+            // HelikopterZerstörtTextBox
+            // 
+            this.HelikopterZerstörtTextBox.Location = new System.Drawing.Point(12, 133);
+            this.HelikopterZerstörtTextBox.Name = "HelikopterZerstörtTextBox";
+            this.HelikopterZerstörtTextBox.ReadOnly = true;
+            this.HelikopterZerstörtTextBox.Size = new System.Drawing.Size(100, 20);
+            this.HelikopterZerstörtTextBox.TabIndex = 19;
+            this.HelikopterZerstörtTextBox.TabStop = false;
+            this.HelikopterZerstörtTextBox.Text = "Helikopter zerstört:";
             // 
             // Main_Program
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 259);
+            this.ClientSize = new System.Drawing.Size(459, 279);
+            this.Controls.Add(this.HelikopterZerstörtUserTextBox);
+            this.Controls.Add(this.HelikopterZerstörtTextBox);
             this.Controls.Add(this.TargetUndamagedUserTextBox);
             this.Controls.Add(this.TargetUndamagedTextBox);
             this.Controls.Add(this.CriticalHitUserTextBox);
@@ -260,6 +281,8 @@
         private System.Windows.Forms.TextBox CriticalHitUserTextBox;
         private System.Windows.Forms.TextBox TargetUndamagedTextBox;
         private System.Windows.Forms.TextBox TargetUndamagedUserTextBox;
+        private System.Windows.Forms.TextBox HelikopterZerstörtUserTextBox;
+        private System.Windows.Forms.TextBox HelikopterZerstörtTextBox;
     }
 }
 

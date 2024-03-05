@@ -55,6 +55,7 @@ namespace KR_WTKME
                 e.Graphics.DrawLine(pen, HitUserTextBox.Left, HitUserTextBox.Bottom + lineWidth, HitUserTextBox.Right, HitUserTextBox.Bottom + lineWidth);
                 e.Graphics.DrawLine(pen, CriticalHitUserTextBox.Left, CriticalHitUserTextBox.Bottom + lineWidth, CriticalHitUserTextBox.Right, CriticalHitUserTextBox.Bottom + lineWidth);
                 e.Graphics.DrawLine(pen, TargetUndamagedUserTextBox.Left, TargetUndamagedUserTextBox.Bottom + lineWidth, TargetUndamagedUserTextBox.Right, TargetUndamagedUserTextBox.Bottom + lineWidth);
+                e.Graphics.DrawLine(pen, HelikopterZerstörtUserTextBox.Left, HelikopterZerstörtUserTextBox.Bottom + lineWidth, HelikopterZerstörtUserTextBox.Right, HelikopterZerstörtUserTextBox.Bottom + lineWidth);
             }
         }
         private void Main_Program_Load(object sender, EventArgs e)
@@ -66,6 +67,7 @@ namespace KR_WTKME
             HitUserTextBox.Text = Properties.Settings.Default.HitText;
             CriticalHitUserTextBox.Text = Properties.Settings.Default.CriticalHitText;
             TargetUndamagedUserTextBox.Text = Properties.Settings.Default.TargetUndamagedText;
+            HelikopterZerstörtUserTextBox.Text = Properties.Settings.Default.HelikopterZertsörtText;
 
             //Überprüfe Sprache und setze entsprechenden Text
             if (Properties.Settings.Default.Language == "de-DE")
@@ -77,7 +79,8 @@ namespace KR_WTKME
                 HitTextBox.Text = "Treffer:";
                 CriticalHitTextBox.Text = "Kritischer Treffer:";
                 TargetUndamagedTextBox.Text = "Ziel unbeschädigt:";
-                
+                HelikopterZerstörtTextBox.Text = "Helikopter zerstört:";
+
 
                 //buttons
                 CustomMessagesActivateButton.Text = "Eigene Kill Message aktivieren";
@@ -110,6 +113,7 @@ namespace KR_WTKME
                 HitTextBox.Text = "Hit:";
                 CriticalHitTextBox.Text = "Critical Hit:";
                 TargetUndamagedTextBox.Text = "Target undamaged:";
+                HelikopterZerstörtTextBox.Text = "Helicopter destroyed:";
 
                 //buttons
                 CustomMessagesActivateButton.Text = "Activate Kill Messages";
@@ -189,6 +193,8 @@ namespace KR_WTKME
                 this.CriticalHitUserTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
                 this.TargetUndamagedTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
                 this.TargetUndamagedUserTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.HelikopterZerstörtUserTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
+                this.HelikopterZerstörtTextBox.BackColor = Properties.Settings.Default.DarkThemeBackColor;
 
                 this.GamefolderTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.PanzerZerstörtTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
@@ -206,6 +212,8 @@ namespace KR_WTKME
                 this.CriticalHitUserTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.TargetUndamagedTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
                 this.TargetUndamagedUserTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
+                this.HelikopterZerstörtUserTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
+                this.HelikopterZerstörtTextBox.ForeColor = Properties.Settings.Default.DarkThemeForeColor;
 
 
                 this.GamefolderTextBox.BorderStyle = BorderStyle.None;
@@ -220,6 +228,8 @@ namespace KR_WTKME
                 this.CriticalHitUserTextBox.BorderStyle = BorderStyle.None;
                 this.TargetUndamagedTextBox.BorderStyle = BorderStyle.None;
                 this.TargetUndamagedUserTextBox.BorderStyle = BorderStyle.None;
+                HelikopterZerstörtUserTextBox.BorderStyle = BorderStyle.None;
+                HelikopterZerstörtTextBox.BorderStyle = BorderStyle.None;  
 
                 this.SaveButton.FlatStyle = FlatStyle.Flat;
                 this.UpdateLangDirButton.FlatStyle = FlatStyle.Flat;
@@ -348,6 +358,7 @@ namespace KR_WTKME
             Properties.Settings.Default.HitText = HitUserTextBox.Text;
             Properties.Settings.Default.CriticalHitText = CriticalHitUserTextBox.Text;
             Properties.Settings.Default.TargetUndamagedText = TargetUndamagedUserTextBox.Text;
+            Properties.Settings.Default.HelikopterZertsörtText = HelikopterZerstörtUserTextBox.Text;
             // Speichern der geänderten Einstellungen
             Properties.Settings.Default.Save();
 
@@ -574,6 +585,49 @@ namespace KR_WTKME
                     }
                 }
 
+                // Überprüfe, ob die Textboxen nicht leer sind
+                if (!string.IsNullOrEmpty(HelikopterZerstörtUserTextBox.Text) && !string.IsNullOrEmpty(Properties.Settings.Default.HelikopterZertsörtText))
+                {
+                    // Suche nach der Zeile mit dem zu ersetzenden Text für Helikopter
+                    string helikopterSearchString = "\"exp_reasons/kill_helicopter\"";
+                    int helikopterLineIndex = fileContent.IndexOf(helikopterSearchString);
+
+                    if (helikopterLineIndex != -1)
+                    {
+                        // Suche das Ende der Zeile für Helikopter
+                        int helikopterEndIndex = fileContent.IndexOf("\n", helikopterLineIndex);
+
+                        if (helikopterEndIndex != -1)
+                        {
+                            // Extrahiere die Zeile mit dem zu ersetzenden Text für Helikopter
+                            string helikopterLine = fileContent.Substring(helikopterLineIndex, helikopterEndIndex - helikopterLineIndex);
+
+                            // Teile die Zeile in Spalten auf
+                            string[] helikopterColumns = helikopterLine.Split(';');
+
+                            if (helikopterColumns.Length >= 2)
+                            {
+                                // Ersetze den Text in allen Sprachenspalten für helikoptere
+                                for (int i = 1; i < helikopterColumns.Length; i++)
+                                {
+                                    helikopterColumns[i] = "\"" + HelikopterZerstörtUserTextBox.Text + "\"";
+                                }
+
+                                // Füge die beiden zusätzlichen leeren Spalten am Ende hinzu
+                                Array.Resize(ref helikopterColumns, helikopterColumns.Length + 2);
+                                helikopterColumns[helikopterColumns.Length - 2] = "";
+                                helikopterColumns[helikopterColumns.Length - 1] = "";
+
+                                // Baue die aktualisierte Zeile zusammen
+                                string updatedHelikopterLine = string.Join(";", helikopterColumns);
+
+                                // Ersetze die alte Zeile durch die aktualisierte Zeile im Dateiinhalt
+                                fileContent = fileContent.Replace(helikopterLine, updatedHelikopterLine);
+                            }
+                        }
+                    }
+                }
+
                 // Schreibe den aktualisierten Inhalt in die menu.csv-Datei
                 File.WriteAllText(menuFilePath, fileContent);
 
@@ -610,6 +664,7 @@ namespace KR_WTKME
                 MessageBox.Show(msgLangDirectoryNotFound, msgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 
 }

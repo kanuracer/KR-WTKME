@@ -12,7 +12,7 @@ namespace KR_WTKME.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -37,7 +37,7 @@ namespace KR_WTKME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("475, 298")]
+        [global::System.Configuration.DefaultSettingValueAttribute("475, 318")]
         public global::System.Drawing.Size WindowSize {
             get {
                 return ((global::System.Drawing.Size)(this["WindowSize"]));
@@ -188,6 +188,18 @@ namespace KR_WTKME.Properties {
             }
             set {
                 this["TargetUndamagedText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HelikopterZertsörtText {
+            get {
+                return ((string)(this["HelikopterZertsörtText"]));
+            }
+            set {
+                this["HelikopterZertsörtText"] = value;
             }
         }
     }

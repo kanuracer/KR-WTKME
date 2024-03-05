@@ -6,7 +6,7 @@
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
     <Setting Name="WindowSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">475, 298</Value>
+      <Value Profile="(Default)">475, 318</Value>
     </Setting>
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)">en-US</Value>
@@ -42,6 +42,9 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TargetUndamagedText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="HelikopterZertsörtText" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
