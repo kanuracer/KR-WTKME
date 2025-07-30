@@ -3,7 +3,7 @@ KR-WTKME: kanuracers - War Thunder Kill Message Editor
 
 Feel free to edit the project! It's important that it remains open source. The project cannot be sold, even if you make modifications to it! If you decide to modify and publish the project, you must always credit the original project and mention me!
 
-You can download and install it here: https://download.kanuracer.eu/KR-WTKME/
+You can download and install it here: https://github.com/kanuracer/KR-WTKME/tree/main/programm
 
 ![__PreviewImage](https://github.com/kanuracer/KR-WTKME/blob/main/10.0.0.14_screenshot.png)
 
@@ -13,6 +13,8 @@ You can download and install it here: https://download.kanuracer.eu/KR-WTKME/
 
 
 --PATCHNOTES--
+
+10.0.0.15: moved installfiles to github
 
 10.0.0.14: Added Helicopters
 
