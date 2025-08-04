@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Git\\KR-WTKME\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|KR-WTKME||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|E:\\Git\\KR-WTKME\\main_program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|solutionrelative:main_program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|E:\\Git\\KR-WTKME\\main_program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|solutionrelative:main_program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|E:\\Git\\KR-WTKME\\main_program.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|solutionrelative:main_program.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|E:\\Git\\KR-WTKME\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|solutionrelative:settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47E05700-F32C-425A-B97F-30672A47AD6C}|KR-WTKME.csproj|e:\\git\\kr-wtkme\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|cc4014f5-b18d-439c-9352-f99d984cca85"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KR-WTKME",
+              "DocumentMoniker": "E:\\Git\\KR-WTKME\\KR-WTKME.csproj",
+              "RelativeDocumentMoniker": "KR-WTKME.csproj",
+              "ToolTip": "E:\\Git\\KR-WTKME\\KR-WTKME.csproj",
+              "RelativeToolTip": "KR-WTKME.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-05T10:47:16.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Main_Program.cs",
+              "DocumentMoniker": "E:\\Git\\KR-WTKME\\Main_Program.cs",
+              "RelativeDocumentMoniker": "Main_Program.cs",
+              "ToolTip": "E:\\Git\\KR-WTKME\\Main_Program.cs",
+              "RelativeToolTip": "Main_Program.cs",
+              "ViewState": "AQIAAFwCAAAAAAAAAAAYwGgBAABkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-05T11:34:33.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Main_Program.Designer.cs",
+              "DocumentMoniker": "E:\\Git\\KR-WTKME\\Main_Program.Designer.cs",
+              "RelativeDocumentMoniker": "Main_Program.Designer.cs",
+              "ToolTip": "E:\\Git\\KR-WTKME\\Main_Program.Designer.cs",
+              "RelativeToolTip": "Main_Program.Designer.cs",
+              "ViewState": "AQIAALYAAAAAAAAAAAAMwNQAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-03-05T11:34:33.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Main_Program.cs [Entwurf]",
+              "DocumentMoniker": "E:\\Git\\KR-WTKME\\Main_Program.cs",
+              "RelativeDocumentMoniker": "Main_Program.cs",
+              "ToolTip": "E:\\KR-WTKME\\Main_Program.cs [Entwurf]",
+              "RelativeToolTip": "..\\..\\KR-WTKME\\Main_Program.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-05T11:34:33.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Settings.cs [Entwurf]",
+              "DocumentMoniker": "E:\\Git\\KR-WTKME\\Settings.cs",
+              "RelativeDocumentMoniker": "Settings.cs",
+              "ToolTip": "E:\\KR-WTKME\\Settings.cs [Entwurf]",
+              "RelativeToolTip": "..\\..\\KR-WTKME\\Settings.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-05T11:34:33.425Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

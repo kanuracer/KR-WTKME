@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://download.kanuracer.eu/KR-WTKME/</InstallUrl>
+    <InstallUrl>https://raw.githubusercontent.com/kanuracer/KR-WTKME/main/programm/</InstallUrl>
     <UpdateUrl>https://download.kanuracer.eu/KR-WTKME/</UpdateUrl>
     <SupportUrl>https://kanuracer.eu/support</SupportUrl>
     <TargetCulture>de</TargetCulture>
@@ -31,7 +31,7 @@
     <PublisherName>kanuracer.eu</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
