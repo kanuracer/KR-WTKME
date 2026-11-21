@@ -1,27 +1,21 @@
-# KR-WTKME
-KR-WTKME: kanuracers - War Thunder Kill Message Editor
+# KR-WTKME → KR KillForge
 
-Feel free to edit the project! It's important that it remains open source. The project cannot be sold, even if you make modifications to it! If you decide to modify and publish the project, you must always credit the original project and mention me!
+## Deutsch
 
-You can download and install it here: https://github.com/kanuracer/KR-WTKME/tree/main/programm
+KR-WTKME wird als **KR KillForge** weitergeführt.
 
-![__PreviewImage](https://github.com/kanuracer/KR-WTKME/blob/main/10.0.0.14_screenshot.png)
+Das neue Repository enthält die aktuelle portable Anwendung für Windows und Linux, Dokumentation und vollständige Quellen:
 
-![__PreviewImage](https://github.com/kanuracer/KR-WTKME/assets/115377230/7e841fba-dc40-4c30-90af-f217c0ac481c)
+**[Zum neuen Repository: KR KillForge](https://github.com/kanuracer/KR-KillForge)**  
+**[Aktuelle Version herunterladen](https://github.com/kanuracer/KR-KillForge/releases/latest)**
 
-![__PreviewImage2](https://github.com/kanuracer/KR-WTKME/assets/115377230/e3219b61-00ff-4e69-9f99-c1b94e0bb577)
+---
 
+## English
 
---PATCHNOTES--
+KR-WTKME continues as **KR KillForge**.
 
-10.0.0.15: moved installfiles to github
+The new repository contains the current portable application for Windows and Linux, documentation and complete source code:
 
-10.0.0.14: Added Helicopters
-
-1.0.0.9: Added English language pack
-
-1.0.0.8: Fixed Critical Error (;; end of line)
-
-1.0.0.7: Hit, Critical Hit, and Target Undamaged have been added to autoinfill
-
-1.0.0.6: Hit, Critical Hit, and Target Undamaged have been added
+**[Open the new KR KillForge repository](https://github.com/kanuracer/KR-KillForge)**  
+**[Download the latest release](https://github.com/kanuracer/KR-KillForge/releases/latest)**
